@@ -1,2 +1,7 @@
-case_id	label	x	y	z	block_state	expected
-stock-control	stone stock rendering control	176	100	175	minecraft:stone	stock-visible
+case_id	label	x	y	z	block_state	nbt	expected
+slab-control	smooth-stone slab stock control	164	100	168	minecraft:smooth_stone_slab[type=bottom,waterlogged=false]		stock-visible
+diamond-smooth	diamond block trophy on smooth stone	166	100	168	trophymanager:trophy[facing=south,waterlogged=false]	{TrophyData:{TrophyType:"item",TrophyItem:{id:"minecraft:diamond_block",count:1},OffsetY:0.5d,RotX:0.0f,Scale:0.5f,BaseBlock:"minecraft:smooth_stone_slab",Name:"Diamond"}}	dynamic-base-and-block-item
+gold-sandstone	gold block trophy on cut sandstone	168	100	168	trophymanager:trophy[facing=east,waterlogged=false]	{TrophyData:{TrophyType:"item",TrophyItem:{id:"minecraft:gold_block",count:1},OffsetY:0.5d,RotX:0.0f,Scale:0.5f,BaseBlock:"minecraft:cut_sandstone_slab",Name:"Gold"}}	dynamic-base-and-block-item
+emerald-oak	scaled emerald block trophy on oak	170	100	168	trophymanager:trophy[facing=north,waterlogged=false]	{TrophyData:{TrophyType:"item",TrophyItem:{id:"minecraft:emerald_block",count:1},OffsetY:0.55d,RotX:0.0f,Scale:0.65f,BaseBlock:"minecraft:oak_slab",Name:"Emerald"}}	dynamic-base-scale-and-facing
+redstone-deepslate	small redstone block trophy on deepslate tile	172	100	168	trophymanager:trophy[facing=west,waterlogged=false]	{TrophyData:{TrophyType:"item",TrophyItem:{id:"minecraft:redstone_block",count:1},OffsetY:0.6d,RotX:0.0f,Scale:0.4f,BaseBlock:"minecraft:deepslate_tile_slab",Name:"Redstone"}}	dynamic-base-scale-and-facing
+entity-fallback	creeper entity trophy unsupported control	174	100	168	trophymanager:trophy[facing=north,waterlogged=false]	{TrophyData:{TrophyType:"entity",TrophyEntity:{entityType:"minecraft:creeper"},OffsetY:0.5d,RotX:0.0f,Scale:0.5f,BaseBlock:"minecraft:brick_slab",Name:"Creeper"}}	stock-safe-entity-fallback
