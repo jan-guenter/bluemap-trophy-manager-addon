@@ -1,0 +1,379 @@
+{
+  "deterministic": true,
+  "family_id": "trophymanager",
+  "generator": "bluemap-java21-addon-scaffold-v1",
+  "initial_files": [
+    {
+      "mode": "0644",
+      "path": ".gitattributes",
+      "sha256": "c0b5802900ed076871e7878f051eb2cd8d7918dbfada3f40f86300fa7325252d",
+      "size": 58
+    },
+    {
+      "mode": "0644",
+      "path": ".github/workflows/ci.yml",
+      "sha256": "c25218ca4a645a11dafb8a8c31ff847c3202c6d0fad365053732d9b03437239f",
+      "size": 4402
+    },
+    {
+      "mode": "0644",
+      "path": ".github/workflows/release.yml",
+      "sha256": "eddb12fbadd820a1111cb332b9fd534c2623ee70806e83a49b27a40031e742c4",
+      "size": 6543
+    },
+    {
+      "mode": "0644",
+      "path": ".gitignore",
+      "sha256": "a5030053f21da04c319ab8abe4020d2ee1d488430e79f0b8ce04f1d7f29a93f6",
+      "size": 105
+    },
+    {
+      "mode": "0644",
+      "path": "AGENTS.md",
+      "sha256": "913f3c05a5a01e434880a288e7bb9422e2cccb306c6abfb58ad1ae2f5a7a2309",
+      "size": 2115
+    },
+    {
+      "mode": "0644",
+      "path": "CHANGELOG.md",
+      "sha256": "1168d72470a0fdc544041446a55f56c39be5df8bbaade841364101ac1ce7909b",
+      "size": 208
+    },
+    {
+      "mode": "0644",
+      "path": "LICENSE",
+      "sha256": "f079a10f7ddfae72170c16c8be18685f05e36309955c3858e9f863d4cae7cfce",
+      "size": 1068
+    },
+    {
+      "mode": "0644",
+      "path": "LICENSE-BlueMap",
+      "sha256": "f1c190d4a1ff29606cbed7a0d97fc7b7117cc2e1169e19caa753198957dbbfd6",
+      "size": 1122
+    },
+    {
+      "mode": "0644",
+      "path": "NOTICE.md",
+      "sha256": "63b71595a49fc07e768a9f8599d1c0789f8e6591ec10f2d1ef99af6c25d2d6b4",
+      "size": 429
+    },
+    {
+      "mode": "0644",
+      "path": "README.md",
+      "sha256": "ad0fded1610149d626b408bb2b1b54d7bd02c0e87c3cd0f1ecc22a218684d2d3",
+      "size": 1552
+    },
+    {
+      "mode": "0644",
+      "path": "THIRD_PARTY.md",
+      "sha256": "2cc8723c3d0945dbd4d87761e85924d3c6bf5e2777cb8d2768e07856e2f0d9cc",
+      "size": 619
+    },
+    {
+      "mode": "0644",
+      "path": "build.gradle",
+      "sha256": "4ab89e6d5b48d531412623126935bc5c17208c89568e95f6efac901493fc8908",
+      "size": 19575
+    },
+    {
+      "mode": "0644",
+      "path": "config/checkstyle/checkstyle.xml",
+      "sha256": "77fe7b6d9a70f527daf7288ad2955e467f1059ef75b0c3d0d63694c8bea285d7",
+      "size": 791
+    },
+    {
+      "mode": "0644",
+      "path": "docs/EXECUTION.md",
+      "sha256": "94004535a3a23ba9188e098e31b5e6c67c934320ba3087c8214111439ef6ff63",
+      "size": 2056
+    },
+    {
+      "mode": "0644",
+      "path": "docs/RELEASING.md",
+      "sha256": "7488e66595e35648c172f99f43104e5dc8bdc99569a106b25bb628ef7f4b4b5d",
+      "size": 1522
+    },
+    {
+      "mode": "0644",
+      "path": "gallery/README.md",
+      "sha256": "6518d915bbff0f842bd2df8b03ab75933a70c5c2dec827ffb34a69e532f88bef",
+      "size": 670
+    },
+    {
+      "mode": "0644",
+      "path": "gallery/SHA256SUMS",
+      "sha256": "c6f52dfbd48edd42455225da1c656fc9d6f18d75ec91a6bb304d52559c9ccadc",
+      "size": 924
+    },
+    {
+      "mode": "0755",
+      "path": "gallery/cases.py",
+      "sha256": "08587f8012f810bbca90768c215a60807330c46c4342d0acd8e06f000f0a8ff2",
+      "size": 760
+    },
+    {
+      "mode": "0644",
+      "path": "gallery/datapack/data/minecraft/tags/function/load.json",
+      "sha256": "0702ce30c22bb550d01077051b8434b6d52dacf3eb4d9a6a46a27d37d5805d36",
+      "size": 55
+    },
+    {
+      "mode": "0644",
+      "path": "gallery/datapack/data/trophymanager_gallery/function/build.mcfunction",
+      "sha256": "588bf1c2740234bfd7f3d90c7e96b993877ea64352242845c7f6ee61149db325",
+      "size": 208
+    },
+    {
+      "mode": "0644",
+      "path": "gallery/datapack/data/trophymanager_gallery/function/clear.mcfunction",
+      "sha256": "4507683d949af7e2312781de5e2ef0cb5d090ff6584e08f003a406bb4586b5d3",
+      "size": 91
+    },
+    {
+      "mode": "0644",
+      "path": "gallery/datapack/data/trophymanager_gallery/function/load.mcfunction",
+      "sha256": "a12ca593776069c96dcf6258077359832069cb75f818fcdb1d44647d24771971",
+      "size": 173
+    },
+    {
+      "mode": "0644",
+      "path": "gallery/datapack/data/trophymanager_gallery/function/release.mcfunction",
+      "sha256": "28f6368c73c873bc291b8016b4b470c2d6155281f77974107be19a7637dde7a8",
+      "size": 86
+    },
+    {
+      "mode": "0644",
+      "path": "gallery/datapack/data/trophymanager_gallery/function/verify.mcfunction",
+      "sha256": "7cb4c3bac444a0dc011bd21848ed3d76877a78f998b492a055b6566a1388123e",
+      "size": 252
+    },
+    {
+      "mode": "0644",
+      "path": "gallery/datapack/pack.mcmeta",
+      "sha256": "7e4686f3d1fb54ce9de1d6020290d0a3085b4e3b3cba1c3f3b30b7fdc999e71b",
+      "size": 109
+    },
+    {
+      "mode": "0755",
+      "path": "gallery/generate.py",
+      "sha256": "1b06bd0873ed02ecf6d98bfb5bf60ba73e87b04780c7df0caf2f6ab2e9e81aee",
+      "size": 4814
+    },
+    {
+      "mode": "0755",
+      "path": "gallery/lint.py",
+      "sha256": "b970deb190d8597b0b0c07429be2898edd5bad6cef5c35e0f5b4bdfad7d58982",
+      "size": 2469
+    },
+    {
+      "mode": "0755",
+      "path": "gallery/package.sh",
+      "sha256": "1776bd4ef890cbdc1e79902f9c12d539690bf9ce1918c256826d452659264efd",
+      "size": 1321
+    },
+    {
+      "mode": "0644",
+      "path": "gallery/placements.tsv",
+      "sha256": "b56ee047c4aa36d26a7ca29b867a4bee61e3fa5aa25f0c4247ee46ca07cff797",
+      "size": 127
+    },
+    {
+      "mode": "0644",
+      "path": "gradle.properties",
+      "sha256": "f0053aba38869156e063bce5688e1f8b53196e08851c3c8f6395160cf86802f5",
+      "size": 605
+    },
+    {
+      "mode": "0644",
+      "path": "provenance/release.json",
+      "sha256": "06bab2bbe28627380591eba06ce2c7dd7ccb2009c11e3e202cac5d8de6d321eb",
+      "size": 370
+    },
+    {
+      "mode": "0644",
+      "path": "provenance/upstreams.json",
+      "sha256": "dd069b65b5795582a841e387811d0dbd91d36512bdb3cfe672ad8463d1f5b29e",
+      "size": 1423
+    },
+    {
+      "mode": "0644",
+      "path": "settings.gradle",
+      "sha256": "5f6b3d7f9169230e90f68e71fd0cbf08b604673777c05c7ad2eba5d9e3669a78",
+      "size": 1433
+    },
+    {
+      "mode": "0644",
+      "path": "src/main/java/io/github/janguenter/bluemap/trophymanager/BlueMapTrophyManagerAddon.java",
+      "sha256": "5ca97d08db066311ea654f8ff0f6e8dac28c9675c308e01bedbe4f425a0a8ae9",
+      "size": 1575
+    },
+    {
+      "mode": "0644",
+      "path": "src/main/java/io/github/janguenter/bluemap/trophymanager/activation/AddonRuntime.java",
+      "sha256": "c2812e42a326a457cc49c0d97a71472d08069fc52b600132a812576e507e6118",
+      "size": 2166
+    },
+    {
+      "mode": "0644",
+      "path": "src/main/java/io/github/janguenter/bluemap/trophymanager/adapter/bluemap522/AdapterCompatibility.java",
+      "sha256": "d9f6881226bb3460d352b152b3b1c648c8e308dbcf8dc05164f50bd7c31f4980",
+      "size": 1043
+    },
+    {
+      "mode": "0644",
+      "path": "src/main/java/io/github/janguenter/bluemap/trophymanager/adapter/bluemap522/BlueMap522Adapter.java",
+      "sha256": "694415002188311c50eb59aed191d134c78f060750dc7fbc2dc9d833a2a16e82",
+      "size": 1146
+    },
+    {
+      "mode": "0644",
+      "path": "src/main/java/io/github/janguenter/bluemap/trophymanager/adapter/bluemap522/ProfileResourceExtension.java",
+      "sha256": "de6dadfb9831f8258f3aec68658816bef7936c8975b9e7ae7f3edb3c7c4f51cd",
+      "size": 1721
+    },
+    {
+      "mode": "0644",
+      "path": "src/main/java/io/github/janguenter/bluemap/trophymanager/adapter/bluemap522/ProfileResourceExtensionType.java",
+      "sha256": "778ea8eae04942ff945089e8f8d688519d603c8e12faf41b6876aa3da8332fbc",
+      "size": 936
+    },
+    {
+      "mode": "0644",
+      "path": "src/main/java/io/github/janguenter/bluemap/trophymanager/adapter/bluemap522/RegistryGuard.java",
+      "sha256": "f8b537024d79f7fdac1eaa8640229ab87adb3e88432678287c893b44b8bd1ac7",
+      "size": 880
+    },
+    {
+      "mode": "0644",
+      "path": "src/main/java/io/github/janguenter/bluemap/trophymanager/profile/ArtifactPin.java",
+      "sha256": "4abebf70aeed75b1583ccf5e5357ffae94ce42e01a71e7a8dd59120c279f1ad9",
+      "size": 1375
+    },
+    {
+      "mode": "0644",
+      "path": "src/main/java/io/github/janguenter/bluemap/trophymanager/profile/ExactArtifactDetector.java",
+      "sha256": "a5fd8019344d58751ff6f9acb8fcfdc493c50eb2c27f22b3f21f94481966a22d",
+      "size": 9966
+    },
+    {
+      "mode": "0644",
+      "path": "src/main/java/io/github/janguenter/bluemap/trophymanager/profile/TrophyManager250Profile.java",
+      "sha256": "0edd5e797764c3b28c5d5fc95a0aee30ccaab9349e2c8441c52f02bd70299264",
+      "size": 757
+    },
+    {
+      "mode": "0644",
+      "path": "src/main/resources/bluemap.addon.json",
+      "sha256": "57274755faf1ab7669237c1c78d4dc17fe5a9800f2aa9d9ca7227e3e8d443112",
+      "size": 173
+    },
+    {
+      "mode": "0644",
+      "path": "src/test/java/io/github/janguenter/bluemap/trophymanager/activation/AddonRuntimeTest.java",
+      "sha256": "c5e5fb077035ad20825350a76c2967454494fa16e5623d7dbace9fd28efb6f86",
+      "size": 1079
+    },
+    {
+      "mode": "0644",
+      "path": "src/test/java/io/github/janguenter/bluemap/trophymanager/adapter/bluemap522/AdapterCompatibilityTest.java",
+      "sha256": "fca6ef9cb8d95d7ef625a7899edcaf87d7ba65767e23c4d7f2489f0239858565",
+      "size": 967
+    },
+    {
+      "mode": "0644",
+      "path": "src/test/java/io/github/janguenter/bluemap/trophymanager/profile/ExactArtifactDetectorTest.java",
+      "sha256": "7a9c23da9a61fe4bd9b960d50166abbbaca3b566bdc1d572a489d6758b019390",
+      "size": 3428
+    },
+    {
+      "mode": "0755",
+      "path": "tools/verify_pinned_artifacts.py",
+      "sha256": "dc7c6d80796f9d5773183a499aa61320a0126ac21f1fdb5c8e872bbf618ca798",
+      "size": 3508
+    },
+    {
+      "mode": "0755",
+      "path": "tools/verify_staged_equivalence.py",
+      "sha256": "cc8fa6cb1e79b85555b9f10920909b0c03fdc8d78445e07c877674e513fcff9f",
+      "size": 4441
+    }
+  ],
+  "repository": "bluemap-trophy-manager-addon",
+  "schema": 1,
+  "spec_sha256": "382b158120cde279541b9dc3ccb6dfc22c74f61f5fd24b9a88146eb88a37f0f8",
+  "steps": [
+    {
+      "description": "Validate the reviewed scaffold spec.",
+      "id": "validate-spec",
+      "number": 1,
+      "status": "complete"
+    },
+    {
+      "description": "Render and byte-audit the deterministic seed.",
+      "id": "render-seed",
+      "number": 2,
+      "status": "complete"
+    },
+    {
+      "description": "Initialize the independent child repository and feature branch.",
+      "id": "initialize-repository",
+      "number": 3,
+      "status": "pending"
+    },
+    {
+      "description": "Acquire exact candidate artifacts outside Git and verify their identities.",
+      "id": "acquire-artifacts",
+      "number": 4,
+      "status": "pending"
+    },
+    {
+      "description": "Verify Java 21 and exact BlueMap, API, pack, and loader pins.",
+      "id": "verify-baseline",
+      "number": 5,
+      "status": "pending"
+    },
+    {
+      "description": "Implement family-owned registration, profile, decoder, and renderer.",
+      "id": "implement-family",
+      "number": 6,
+      "status": "pending"
+    },
+    {
+      "description": "Add focused compatibility, decoder, geometry, and fallback tests.",
+      "id": "focused-tests",
+      "number": 7,
+      "status": "pending"
+    },
+    {
+      "description": "Replace the stock-only gallery with the smallest defect fixture.",
+      "id": "defect-gallery",
+      "number": 8,
+      "status": "pending"
+    },
+    {
+      "description": "Build a prototype and deploy it promptly to disposable staging.",
+      "id": "stage-prototype",
+      "number": 9,
+      "status": "pending"
+    },
+    {
+      "description": "Obtain owner comparison and visual acceptance in client and BlueMap.",
+      "id": "owner-acceptance",
+      "number": 10,
+      "status": "pending"
+    },
+    {
+      "description": "Seal staging and publication identities and run the release gate.",
+      "id": "seal-release",
+      "number": 11,
+      "status": "pending"
+    },
+    {
+      "description": "Merge, tag, publish, verify, and update root coordination.",
+      "id": "publish-coordinate",
+      "number": 12,
+      "status": "pending"
+    }
+  ],
+  "template_sha256": "96f6497d2ea982ea702c0208ddf202393bb331b1b24f6600bd9a328ca62f4540"
+}

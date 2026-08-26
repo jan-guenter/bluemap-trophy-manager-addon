@@ -1,0 +1,6 @@
+{
+  "id": "bluemap-trophymanager",
+  "entrypoint": "io.github.janguenter.bluemap.trophymanager.BlueMapTrophyManagerAddon",
+  "dependencies": [],
+  "soft-dependencies": []
+}
