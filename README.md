@@ -3,10 +3,10 @@
 A Java 21 BlueMap add-on for the exact `trophymanager-1.21.1-2.5.0` profile in All the Mons
 `1.2.0` / Minecraft `1.21.1`.
 
-Status: staging prototype. The exact artifact gate and BlueMap 5.22 adapter
-render resource-driven block-item trophies, neutral vanilla creeper trophies,
-and their configured slab bases. Unsupported targets fall back atomically to
-BlueMap's stock rendering.
+Status: owner-accepted `0.1.0-alpha.1` release candidate. The exact artifact
+gate and BlueMap 5.22 adapter render resource-driven block-item trophies,
+neutral vanilla creeper trophies, and their configured slab bases. Unsupported
+targets fall back atomically to BlueMap's stock rendering.
 
 ## Build
 
