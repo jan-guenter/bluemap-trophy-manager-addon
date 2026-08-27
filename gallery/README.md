@@ -1,11 +1,17 @@
-# Placeholder gallery
+# Trophy Manager gallery
 
-This generated gallery proves only the deterministic data-pack mechanics and a
-single `minecraft:stone` stock control at `(176, 100, 175)`. It does not claim
-Trophy Manager support.
+This bounded gallery compares a stock slab with four resource-driven block-item
+trophies and one resource-driven creeper trophy. The row occupies
+`x=164..174`, `y=100`, `z=168`:
 
-Replace `cases.py` with the smallest real defect fixture and stock controls,
-then keep the stable commands:
+- smooth-stone slab control;
+- diamond block on smooth stone;
+- gold block on cut sandstone;
+- emerald block on oak;
+- redstone block on deepslate;
+- creeper entity trophy on brick slab.
+
+Regenerate and validate it with:
 
 ```bash
 python gallery/generate.py
@@ -14,6 +20,5 @@ python gallery/lint.py
 bash gallery/package.sh /tmp/trophymanager-gallery.zip
 ```
 
-The release gate rejects the `SCAFFOLD_NOT_IMPLEMENTED` marker in `cases.py`.
-Keep gallery generation deterministic, bounded, synthetic where practical, and
-free of candidate assets or captured meshes.
+Gallery generation is deterministic, bounded, synthetic, and free of candidate
+assets or captured meshes.
