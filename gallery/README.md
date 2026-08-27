@@ -1,7 +1,7 @@
 # Trophy Manager gallery
 
 This bounded gallery compares a stock slab with four resource-driven block-item
-trophies and one unsupported entity-trophy fallback. The row occupies
+trophies and one resource-driven creeper trophy. The row occupies
 `x=164..174`, `y=100`, `z=168`:
 
 - smooth-stone slab control;
@@ -9,7 +9,7 @@ trophies and one unsupported entity-trophy fallback. The row occupies
 - gold block on cut sandstone;
 - emerald block on oak;
 - redstone block on deepslate;
-- creeper entity trophy, retained as the stock-safe fallback control.
+- creeper entity trophy on brick slab.
 
 Regenerate and validate it with:
 

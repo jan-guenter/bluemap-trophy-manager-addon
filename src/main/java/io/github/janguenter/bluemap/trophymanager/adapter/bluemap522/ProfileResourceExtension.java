@@ -16,6 +16,7 @@ import io.github.janguenter.bluemap.trophymanager.profile.TrophyManager250Profil
 
 import java.nio.file.Path;
 import java.util.Map;
+import java.util.Set;
 import java.util.WeakHashMap;
 
 /** Exact-artifact admission and narrow trophy renderer installation. */
@@ -68,6 +69,11 @@ final class ProfileResourceExtension implements ResourcePackExtension {
     }
 
     @Override
+    public Set<Key> collectUsedTextureKeys() {
+        return runtime.active() ? Set.of(CreeperTrophyEmitter.TEXTURE) : Set.of();
+    }
+
+    @Override
     public void bake() {
         if (!runtime.active()) {
             return;
@@ -82,7 +88,8 @@ final class ProfileResourceExtension implements ResourcePackExtension {
         synchronized (CATALOGS) {
             CATALOGS.put(resourcePack, catalog);
         }
-        System.out.println("BlueMap Trophy Manager add-on active: block-item trophy route installed.");
+        System.out.println("BlueMap Trophy Manager add-on active: block-item and creeper "
+                + "trophy routes installed.");
     }
 
     static VariantRendererCatalog catalog(ResourcePack resourcePack) {

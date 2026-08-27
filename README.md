@@ -4,8 +4,9 @@ A Java 21 BlueMap add-on for the exact `trophymanager-1.21.1-2.5.0` profile in A
 `1.2.0` / Minecraft `1.21.1`.
 
 Status: staging prototype. The exact artifact gate and BlueMap 5.22 adapter
-render resource-driven block-item trophies and their configured slab bases.
-Unsupported targets fall back atomically to BlueMap's stock rendering.
+render resource-driven block-item trophies, neutral vanilla creeper trophies,
+and their configured slab bases. Unsupported targets fall back atomically to
+BlueMap's stock rendering.
 
 ## Build
 
@@ -31,11 +32,13 @@ Set `-Dbluemap.trophymanager.disabled=true` to leave the exact profile inactive.
 
 ## Scope boundary
 
-The initial route supports installed, propertyless block-item models and
-installed slab blockstates selected by Trophy Manager's `BaseBlock` data. It
-reproduces the stable client pose from `OffsetY`, `RotX`, `Scale`, and facing.
-Entity trophies, generated/flat item models, component-sensitive item models,
-waterlogged trophies, malformed data, and unsupported blockstates stay stock.
+The initial routes support installed, propertyless block-item models, neutral
+vanilla creepers using the installed entity texture, and installed slab
+blockstates selected by Trophy Manager's `BaseBlock` data. They reproduce the
+stable client pose from `OffsetY`, `RotX`, `Scale`, and facing. Other entity
+trophies, charged creepers, generated/flat item models, component-sensitive
+item models, waterlogged trophies, malformed data, and unsupported blockstates
+stay stock.
 
 No Trophy Manager binary, source, class, asset, captured mesh, or gallery is
 bundled in the add-on.

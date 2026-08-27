@@ -14,7 +14,7 @@ data merge block 170 100 168 {TrophyData:{TrophyType:"item",TrophyItem:{id:"mine
 # redstone-deepslate: small redstone block trophy on deepslate tile
 setblock 172 100 168 trophymanager:trophy[facing=west,waterlogged=false]
 data merge block 172 100 168 {TrophyData:{TrophyType:"item",TrophyItem:{id:"minecraft:redstone_block",count:1},OffsetY:0.6d,RotX:0.0f,Scale:0.4f,BaseBlock:"minecraft:deepslate_tile_slab",Name:"Redstone"}}
-# entity-fallback: creeper entity trophy unsupported control
+# creeper-entity: creeper entity trophy on brick slab
 setblock 174 100 168 trophymanager:trophy[facing=north,waterlogged=false]
 data merge block 174 100 168 {TrophyData:{TrophyType:"entity",TrophyEntity:{entityType:"minecraft:creeper"},OffsetY:0.5d,RotX:0.0f,Scale:0.5f,BaseBlock:"minecraft:brick_slab",Name:"Creeper"}}
 function trophymanager_gallery:verify

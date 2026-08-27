@@ -21,7 +21,7 @@ import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Optional;
 
-/** Restores persisted slab bases and deterministic block-item trophy subjects. */
+/** Restores persisted slab bases and supported deterministic trophy subjects. */
 final class TrophyRenderer implements BlockRenderer {
 
     private static final String TROPHY = "trophymanager:trophy";
@@ -34,6 +34,7 @@ final class TrophyRenderer implements BlockRenderer {
     private final AddonRuntime runtime;
     private final VariantRendererCatalog catalog;
     private final ResourceModelRenderer models;
+    private final CreeperTrophyEmitter creeper;
     private final Map<BlockRendererType, BlockRenderer> hosts = new IdentityHashMap<>();
 
     TrophyRenderer(
@@ -49,6 +50,7 @@ final class TrophyRenderer implements BlockRenderer {
         this.runtime = runtime;
         this.catalog = catalog;
         this.models = new ResourceModelRenderer(resourcePack, textures, settings);
+        this.creeper = new CreeperTrophyEmitter(resourcePack, textures);
     }
 
     @Override
@@ -93,16 +95,15 @@ final class TrophyRenderer implements BlockRenderer {
         }
         TrophyRenderPlan plan = decoded.orElseThrow();
         if (!plan.baseBlock().endsWith("_slab")
-                || TROPHY.equals(plan.itemBlock())) {
+                || (plan.subject() == TrophyRenderPlan.Subject.BLOCK_ITEM
+                && TROPHY.equals(plan.subjectId()))) {
             return false;
         }
 
         BlockState base = state(
                 plan.baseBlock(), Map.of("type", "bottom", "waterlogged", "false")
         );
-        BlockState subject = state(plan.itemBlock(), Map.of());
-        if (base == null || subject == null
-                || !renderState(base, block, target, mapColor)) {
+        if (base == null || !renderState(base, block, target, mapColor)) {
             target.getTileModel().reset(safeStart);
             target.initialize(safeStart);
             return false;
@@ -110,12 +111,23 @@ final class TrophyRenderer implements BlockRenderer {
 
         int subjectStart = target.getTileModel().size();
         target.initialize(subjectStart);
-        if (!renderState(subject, block, target, mapColor)) {
+        boolean emitted = switch (plan.subject()) {
+            case BLOCK_ITEM -> {
+                BlockState subject = state(plan.subjectId(), Map.of());
+                yield subject != null && renderState(subject, block, target, mapColor);
+            }
+            case CREEPER -> creeper.emit(block, target, mapColor);
+        };
+        if (!emitted) {
             target.getTileModel().reset(safeStart);
             target.initialize(safeStart);
             return false;
         }
-        transformSubject(target, plan);
+        if (plan.subject() == TrophyRenderPlan.Subject.BLOCK_ITEM) {
+            transformBlockSubject(target, plan);
+        } else {
+            transformEntitySubject(target, plan);
+        }
         target.initialize(safeStart);
         return true;
     }
@@ -145,7 +157,10 @@ final class TrophyRenderer implements BlockRenderer {
         return target.getTileModel().size() > start;
     }
 
-    private static void transformSubject(TileModelView subject, TrophyRenderPlan plan) {
+    private static void transformBlockSubject(
+            TileModelView subject,
+            TrophyRenderPlan plan
+    ) {
         float size = 1.5F * plan.scale();
         subject.translate(-0.5F, -0.5F, -0.5F)
                 .scale(size, size, size)
@@ -156,6 +171,17 @@ final class TrophyRenderer implements BlockRenderer {
                         plan.offsetY() + 0.5F - 0.25F * plan.scale(),
                         0.5F
                 );
+    }
+
+    private static void transformEntitySubject(
+            TileModelView subject,
+            TrophyRenderPlan plan
+    ) {
+        float size = plan.scale();
+        subject.scale(size, size, size)
+                .rotate(plan.rotationXDegrees(), 1F, 0F, 0F)
+                .rotate(plan.yawDegrees(), 0F, 1F, 0F)
+                .translate(0.5F, plan.offsetY(), 0.5F);
     }
 
     private static BlockState state(String id, Map<String, String> properties) {

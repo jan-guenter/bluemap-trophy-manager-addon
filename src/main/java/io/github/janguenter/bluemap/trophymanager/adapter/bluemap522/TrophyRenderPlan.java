@@ -6,10 +6,11 @@ import de.bluecolored.bluemap.core.world.BlockState;
 
 import java.util.Optional;
 
-/** Validated deterministic item-trophy snapshot derived from persisted NBT. */
+/** Validated deterministic trophy snapshot derived from persisted NBT. */
 record TrophyRenderPlan(
         String baseBlock,
-        String itemBlock,
+        Subject subject,
+        String subjectId,
         float offsetY,
         float scale,
         float rotationXDegrees,
@@ -28,17 +29,33 @@ record TrophyRenderPlan(
             return Optional.empty();
         }
         TrophyBlockEntityData.TrophyData trophy = data.trophyData();
-        TrophyBlockEntityData.TrophyItem item = trophy.trophyItem();
-        return create(
-                trophy.trophyType(),
-                item == null ? null : item.id(),
-                item == null ? null : item.count(),
-                trophy.baseBlock(),
-                trophy.offsetY(),
-                trophy.scale(),
-                trophy.rotationX(),
-                host.getProperties().get("facing")
-        );
+        String facing = host.getProperties().get("facing");
+        if ("item".equals(trophy.trophyType())) {
+            TrophyBlockEntityData.TrophyItem item = trophy.trophyItem();
+            return create(
+                    trophy.trophyType(),
+                    item == null ? null : item.id(),
+                    item == null ? null : item.count(),
+                    trophy.baseBlock(),
+                    trophy.offsetY(),
+                    trophy.scale(),
+                    trophy.rotationX(),
+                    facing
+            );
+        }
+        if ("entity".equals(trophy.trophyType())) {
+            TrophyBlockEntityData.TrophyEntity entity = trophy.trophyEntity();
+            return createEntity(
+                    entity == null ? null : entity.entityType(),
+                    entity == null ? null : entity.powered(),
+                    trophy.baseBlock(),
+                    trophy.offsetY(),
+                    trophy.scale(),
+                    trophy.rotationX(),
+                    facing
+            );
+        }
+        return Optional.empty();
     }
 
     static Optional<TrophyRenderPlan> create(
@@ -56,6 +73,39 @@ record TrophyRenderPlan(
                 || (count != null && count <= 0)) {
             return Optional.empty();
         }
+        return common(
+                Subject.BLOCK_ITEM, itemId, baseBlock,
+                offsetY, scale, rotationX, facing
+        );
+    }
+
+    static Optional<TrophyRenderPlan> createEntity(
+            String entityType,
+            Boolean powered,
+            String baseBlock,
+            Double offsetY,
+            Float scale,
+            Float rotationX,
+            String facing
+    ) {
+        if (!"minecraft:creeper".equals(entityType) || Boolean.TRUE.equals(powered)) {
+            return Optional.empty();
+        }
+        return common(
+                Subject.CREEPER, entityType, baseBlock,
+                offsetY, scale, rotationX, facing
+        );
+    }
+
+    private static Optional<TrophyRenderPlan> common(
+            Subject subject,
+            String subjectId,
+            String baseBlock,
+            Double offsetY,
+            Float scale,
+            Float rotationX,
+            String facing
+    ) {
         String base = validId(baseBlock) ? baseBlock : DEFAULT_BASE;
         float y = offsetY == null ? DEFAULT_OFFSET_Y : offsetY.floatValue();
         float size = scale == null ? DEFAULT_SCALE : scale;
@@ -65,13 +115,24 @@ record TrophyRenderPlan(
                 || !Float.isFinite(pitch) || pitch < -3600F || pitch > 3600F) {
             return Optional.empty();
         }
-        float yaw = switch (facing) {
+        float yaw = yaw(facing);
+        return Optional.of(new TrophyRenderPlan(
+                base, subject, subjectId, y, size, pitch, yaw
+        ));
+    }
+
+    private static float yaw(String facing) {
+        return switch (facing) {
             case "east" -> 90F;
             case "north" -> 180F;
             case "west" -> 270F;
             default -> 0F;
         };
-        return Optional.of(new TrophyRenderPlan(base, itemId, y, size, pitch, yaw));
+    }
+
+    enum Subject {
+        BLOCK_ITEM,
+        CREEPER
     }
 
     private static boolean validId(String value) {

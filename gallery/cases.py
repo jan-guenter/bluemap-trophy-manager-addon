@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: MIT
-"""Bounded block-item trophy comparison cases."""
+"""Bounded block-item and creeper trophy comparison cases."""
 
 from __future__ import annotations
 
@@ -75,13 +75,13 @@ PLACEMENTS = (
         "dynamic-base-scale-and-facing",
     ),
     Placement(
-        "entity-fallback",
-        "creeper entity trophy unsupported control",
+        "creeper-entity",
+        "creeper entity trophy on brick slab",
         174,
         100,
         168,
         "trophymanager:trophy[facing=north,waterlogged=false]",
         '{TrophyData:{TrophyType:"entity",TrophyEntity:{entityType:"minecraft:creeper"},OffsetY:0.5d,RotX:0.0f,Scale:0.5f,BaseBlock:"minecraft:brick_slab",Name:"Creeper"}}',
-        "stock-safe-entity-fallback",
+        "dynamic-base-and-creeper-entity",
     ),
 )

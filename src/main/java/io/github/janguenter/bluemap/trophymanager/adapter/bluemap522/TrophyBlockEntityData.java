@@ -27,6 +27,9 @@ public final class TrophyBlockEntityData extends MCABlockEntity {
         @NBTName("TrophyItem")
         private TrophyItem trophyItem;
 
+        @NBTName("TrophyEntity")
+        private TrophyEntity trophyEntity;
+
         @NBTName("OffsetY")
         private Double offsetY;
 
@@ -48,6 +51,10 @@ public final class TrophyBlockEntityData extends MCABlockEntity {
 
         TrophyItem trophyItem() {
             return trophyItem;
+        }
+
+        TrophyEntity trophyEntity() {
+            return trophyEntity;
         }
 
         Double offsetY() {
@@ -82,6 +89,27 @@ public final class TrophyBlockEntityData extends MCABlockEntity {
 
         Integer count() {
             return count;
+        }
+    }
+
+    /** Persisted entity identity; variant-specific payload stays opaque. */
+    public static final class TrophyEntity {
+
+        @NBTName("entityType")
+        private String entityType;
+
+        @NBTName("powered")
+        private Boolean powered;
+
+        public TrophyEntity() {
+        }
+
+        String entityType() {
+            return entityType;
+        }
+
+        Boolean powered() {
+            return powered;
         }
     }
 }
