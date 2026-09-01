@@ -4,11 +4,12 @@ This repository starts inactive and stock-safe. Implement only the smallest
 observed Trophy Manager rendering defect before staging.
 
 Before running Gradle gates, activate a Python 3.11 or newer virtual
-environment, initialize the pinned toolkit submodule, and install the exact
-development-only toolkit into the environment:
+environment, initialize the pinned toolkit and Adapter API submodules, and
+install the exact development-only toolkit into the environment:
 
 ```bash
-git submodule update --init --recursive -- tooling/bluemap-addon-toolkit
+git submodule update --init --recursive -- \
+  tooling/bluemap-addon-toolkit modules/bluemap-addon-adapter-api
 python -m pip install --disable-pip-version-check --no-deps \
   --require-hashes --only-binary=:all: \
   --requirement requirements/toolkit.txt
@@ -38,20 +39,10 @@ observed defects until the owner explicitly accepts one exact staging JAR.
 
 ## Acceptance and release
 
-Freeze that accepted JAR's functional entries once; the writer refuses to
-overwrite an existing acceptance record:
-
-```bash
-bluemap-addon-toolkit jar-entries write \
-  --jar /absolute/path/accepted-staging.jar \
-  --entries provenance/accepted-staging-entries.sha256
-```
-
-Record the manifest in `provenance/release.json` as
-`accepted_staging_entries` with exact `path`, `entry_count`, and `sha256`.
-Record `visual_acceptance: true` under `owner_accepted_staging`, and record the
-production JAR, sources JAR, POM and Gradle module file names, sizes and hashes
-under `final_release_artifacts`.
+The migration candidate records the production JAR, sources JAR, POM, and
+Gradle module identities under `candidate_artifacts`. After visual acceptance,
+change the provenance status to `owner-accepted-release-candidate` and record
+the exact integration run and accepted JAR under `owner_accepted_staging`.
 
 Promote `addon_version` through a pull request, remove every generated
 implementation placeholder, and run with all exact candidate properties:
