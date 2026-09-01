@@ -33,24 +33,31 @@
   "candidate_artifacts": {
     "production_jar": {
       "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2.jar",
-      "size": 0,
-      "sha256": "PENDING"
+      "size": 97310,
+      "sha256": "ae5ce7df066efab342de8b17c6ee0f218ef214634c4a3b0b8f5ab2aa57719f5a"
     },
     "sources_jar": {
       "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2-sources.jar",
-      "size": 0,
-      "sha256": "PENDING"
+      "size": 66134,
+      "sha256": "9541dd70f366214062dd63a724fbe8674fd77e3a673f9323b88a9d3cfbe47a7a"
     },
     "pom": {
       "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2.pom",
-      "size": 0,
-      "sha256": "PENDING"
+      "size": 1359,
+      "sha256": "7217f4190add717e1abcb556761d8349c9c733c90672521af3b23880f1a4aaef"
     },
     "gradle_module": {
       "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2.module.json",
-      "size": 0,
-      "sha256": "PENDING"
+      "size": 2866,
+      "sha256": "5a8820fd421bc2102e91413c7785746488c6a302b7ee3613f5563513f9f753a0"
     }
+  },
+  "gallery_candidate": {
+    "file_name": "trophymanager-gallery.zip",
+    "size": 2725,
+    "sha256": "ccd3126c7a7a89b3eabf9f94ac9d6437025a51e90b0965764142fda8b6f8353a",
+    "deterministic_rebuild": true,
+    "matches_alpha_1_owner_accepted_gallery": true
   },
   "preserved_contract": {
     "gallery_review_cases": 6,
@@ -64,11 +71,12 @@
     "trophyManager_sha256": "739f59d0879cff453e229e6a68a7f2e3dd131786da369f82204a8ff2004e7bbd"
   },
   "verification": {
-    "exact_input_gate": false,
-    "adapter_api_gitlink_and_source_tree_gate": false,
-    "production_archive_boundary_gate": false,
-    "sources_archive_boundary_gate": false,
-    "local_candidate_artifact_identity_gate": false,
+    "exact_input_gate": true,
+    "adapter_api_gitlink_and_source_tree_gate": true,
+    "production_archive_boundary_gate": true,
+    "sources_archive_boundary_gate": true,
+    "local_candidate_artifact_identity_gate": true,
+    "gradle_9_6_1_clean_builds_byte_identical": true,
     "authoritative_pr_ci_reproduction": false,
     "local_gradle_version": "9.6.1",
     "local_java_runtime": "21.0.12.1+1",
