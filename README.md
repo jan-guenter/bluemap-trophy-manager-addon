@@ -6,9 +6,9 @@ A Java 21 BlueMap add-on for the exact `trophymanager-1.21.1-2.5.0` profile in A
 Status: unpublished `0.1.0-alpha.2` BlueMap 5.23 migration candidate. It
 preserves the owner-accepted alpha.1 block-item and creeper trophy renderers,
 profile, gallery, and fallback behavior while moving shared compatibility
-helpers into the pinned Adapter API. The exact production JAR is 97,310 bytes
+helpers into the pinned Adapter API. The exact production JAR is 102,452 bytes
 with SHA-256
-`ae5ce7df066efab342de8b17c6ee0f218ef214634c4a3b0b8f5ab2aa57719f5a`.
+`ab0aa103f50966dfc33c184e02a3ea948a2204a14d402a45718238c9dbf5a0b2`.
 
 ## Build
 

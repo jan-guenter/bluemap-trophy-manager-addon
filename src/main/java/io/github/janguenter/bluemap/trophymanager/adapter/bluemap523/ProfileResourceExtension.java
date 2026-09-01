@@ -55,6 +55,10 @@ final class ProfileResourceExtension implements ResourcePackExtension {
             runtime.inactive("required-resource-missing");
             return;
         }
+        if (!BlueNbtHotAddSupport.retainsPersistedTrophyData()) {
+            runtime.inactive("bluenbt-retention-probe-failed");
+            return;
+        }
         runtime.activate();
     }
 

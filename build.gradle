@@ -50,12 +50,29 @@ def artifactPins = [
 ]
 
 tasks.named('test', Test).configure {
+    exclude '**/BlueNbtHotAddIsolationTest.class'
     artifactPins.each { pin ->
         def exactJar = providers.gradleProperty(pin.property)
         if (exactJar.isPresent()) {
             systemProperty pin.property, exactJar.get()
         }
     }
+}
+
+tasks.register('hotAddBlueNbtTest', Test) {
+    description = 'Runs the shared-BlueNBT hot-add recovery oracle in an isolated JVM.'
+    group = LifecycleBasePlugin.VERIFICATION_GROUP
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    filter {
+        includeTestsMatching '*BlueNbtHotAddIsolationTest'
+    }
+    forkEvery = 1
+    maxParallelForks = 1
+}
+
+tasks.named('check').configure {
+    dependsOn tasks.named('hotAddBlueNbtTest')
 }
 
 tasks.named('jar', Jar).configure {

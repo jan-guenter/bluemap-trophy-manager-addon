@@ -50,6 +50,10 @@ public final class BlueMap523Adapter {
             RUNTIME.fail("registry-registration-failed");
             return false;
         }
+        if (!BlueNbtHotAddSupport.refreshSharedDeserializerCache()) {
+            RUNTIME.fail("bluenbt-cache-refresh-failed");
+            return false;
+        }
         return true;
     }
 
