@@ -5,8 +5,10 @@
 - Migrated the accepted renderer to the exact BlueMap 5.23 feature backport.
 - Replaced local runtime, registry, and resource-extension helpers with the
   pinned shared Adapter API source module.
-- Kept the alpha.1 gallery, profile, trophy geometry, and stock fallback
-  behavior unchanged.
+- Preserved persisted trophy NBT after late BlueNBT type registration.
+- Kept synthetic slab and block-item rendering functional when Camol installs
+  its outer global variant wrapper after Trophy Manager.
+- Kept the alpha.1 gallery, profile, trophy poses, and stock fallback scope.
 
 ## 0.1.0-alpha.1 - 2026-08-27
 

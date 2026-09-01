@@ -33,13 +33,13 @@
   "candidate_artifacts": {
     "production_jar": {
       "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2.jar",
-      "size": 102452,
-      "sha256": "ab0aa103f50966dfc33c184e02a3ea948a2204a14d402a45718238c9dbf5a0b2"
+      "size": 102388,
+      "sha256": "b492948aaa281e1874441a259ff9a83cb1b605eb6a390d36e3f6d7424212209b"
     },
     "sources_jar": {
       "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2-sources.jar",
-      "size": 70790,
-      "sha256": "67eb30d9ebd5dff2b7bf09bbe8f26add3eefdf291512bba27b149f9a0c9c0049"
+      "size": 71134,
+      "sha256": "12d8545b3269b5a87cdf5d854a5739cb2b8bf771c520601b9f06897d2d27abe6"
     },
     "pom": {
       "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2.pom",
@@ -49,7 +49,7 @@
     "gradle_module": {
       "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2.module.json",
       "size": 2868,
-      "sha256": "8a26122b1340104f7098edd7cac06f1abc22901cc7c0d9a59ab6e84df19706aa"
+      "sha256": "7f1d32e3d7c5d82a828d752d0573e33a98bbdb88fc636189a127328286c5bdcb"
     }
   },
   "gallery_candidate": {
@@ -63,7 +63,8 @@
     "gallery_review_cases": 6,
     "gallery_sources_changed": false,
     "profile_and_resources_changed": false,
-    "renderer_behavior_changed": false,
+    "renderer_behavior_changed": true,
+    "camol_late_wrapper_interop_repaired": true,
     "bluenbt_late_registration_repaired": true,
     "stock_fallback_changed": false
   },
@@ -79,6 +80,8 @@
     "local_candidate_artifact_identity_gate": true,
     "gradle_9_6_1_clean_builds_byte_identical": true,
     "authoritative_pr_ci_reproduction": true,
+    "camol_late_wrapper_regression_gate": true,
+    "exact_live_resource_camol_oracle_triangles": 24,
     "local_gradle_version": "9.6.1",
     "local_java_runtime": "21.0.12.1+1",
     "exact_alpha_2_runtime_review": false
