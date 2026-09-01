@@ -77,7 +77,7 @@
     "sources_archive_boundary_gate": true,
     "local_candidate_artifact_identity_gate": true,
     "gradle_9_6_1_clean_builds_byte_identical": true,
-    "authoritative_pr_ci_reproduction": false,
+    "authoritative_pr_ci_reproduction": true,
     "local_gradle_version": "9.6.1",
     "local_java_runtime": "21.0.12.1+1",
     "exact_alpha_2_runtime_review": false
