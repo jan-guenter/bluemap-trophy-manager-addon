@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "unpublished-migration-candidate",
+  "status": "owner-accepted-release-candidate",
   "published": false,
   "version": "0.1.0-alpha.2",
   "release_date": "2026-09-02",
@@ -84,6 +84,54 @@
     "exact_live_resource_camol_oracle_triangles": 24,
     "local_gradle_version": "9.6.1",
     "local_java_runtime": "21.0.12.1+1",
-    "exact_alpha_2_runtime_review": false
+    "exact_alpha_2_runtime_review": true
+  },
+  "owner_accepted_staging": {
+    "visual_acceptance": true,
+    "accepted_on": "2026-09-02",
+    "scope": "Owner accepted the corrected Trophy Manager gallery in the combined BlueMap 5.23 integration review. The accepted late block-entity decoder, BlockStateModelRenderer path, Camol interop, profile, resources, and gallery are present byte-for-byte in the alpha.2 production candidate. The aggregate staging JAR differs only at the standard integration activation-check and logging entrypoint overlay.",
+    "integration_run": "bluemap-atmons-integration-20260902-next-review-batch-v41-logistics-fixed-deploy",
+    "candidate_manifest": {
+      "sha256": "f1e0f069d5fce990c8cbc4e007db8c5239d4ca736078fa58fa221ac351cb70ae",
+      "local_candidate_base_source_commit": "ccd190bff7215d07209fbdf4e4b6d4f1345d88a2",
+      "local_candidate_base_artifact": {
+        "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2.jar",
+        "size": 102388,
+        "sha256": "b492948aaa281e1874441a259ff9a83cb1b605eb6a390d36e3f6d7424212209b"
+      },
+      "aggregate_staging_artifact": {
+        "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.1.jar",
+        "size": 102809,
+        "sha256": "d0e3bd022ea75026bcdd32ad1ae6c3f979ff08a4232e340226a172540ac9711e"
+      },
+      "archive_comparison": {
+        "identical_non_entrypoint_files": 34,
+        "different_files": [
+          "io/github/janguenter/bluemap/trophymanager/BlueMapTrophyManagerAddon.class"
+        ]
+      }
+    }
+  },
+  "final_release_artifacts": {
+    "production_jar": {
+      "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2.jar",
+      "size": 102388,
+      "sha256": "b492948aaa281e1874441a259ff9a83cb1b605eb6a390d36e3f6d7424212209b"
+    },
+    "sources_jar": {
+      "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2-sources.jar",
+      "size": 71134,
+      "sha256": "12d8545b3269b5a87cdf5d854a5739cb2b8bf771c520601b9f06897d2d27abe6"
+    },
+    "pom": {
+      "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2.pom",
+      "size": 1359,
+      "sha256": "7217f4190add717e1abcb556761d8349c9c733c90672521af3b23880f1a4aaef"
+    },
+    "gradle_module": {
+      "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2.module.json",
+      "size": 2868,
+      "sha256": "7f1d32e3d7c5d82a828d752d0573e33a98bbdb88fc636189a127328286c5bdcb"
+    }
   }
 }

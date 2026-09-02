@@ -3,7 +3,7 @@
 A Java 21 BlueMap add-on for the exact `trophymanager-1.21.1-2.5.0` profile in All the Mons
 `1.2.0` / Minecraft `1.21.1`.
 
-Status: unpublished `0.1.0-alpha.2` BlueMap 5.23 migration candidate. It
+Status: owner-accepted `0.1.0-alpha.2` BlueMap 5.23 release candidate. It
 preserves the owner-accepted alpha.1 block-item and creeper trophy renderers,
 profile, gallery, and fallback behavior while moving shared compatibility
 helpers into the pinned Adapter API. Synthetic base and subject states follow
@@ -11,6 +11,9 @@ BlueMap's current renderer chain so they remain visible under Camol's global
 wrapper. The exact production JAR is 102,388 bytes
 with SHA-256
 `b492948aaa281e1874441a259ff9a83cb1b605eb6a390d36e3f6d7424212209b`.
+The visually accepted aggregate staging JAR differs from these production
+bytes only in the standard integration activation-check and logging entrypoint;
+all renderer, block-entity, profile, and resource classes are byte-identical.
 
 ## Build
 
