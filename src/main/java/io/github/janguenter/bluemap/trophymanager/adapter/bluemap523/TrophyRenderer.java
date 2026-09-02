@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: MIT */
 
-package io.github.janguenter.bluemap.trophymanager.adapter.bluemap522;
+package io.github.janguenter.bluemap.trophymanager.adapter.bluemap523;
 
 import de.bluecolored.bluemap.core.map.TextureGallery;
 import de.bluecolored.bluemap.core.map.hires.MaxCapacityReachedException;
@@ -8,7 +8,7 @@ import de.bluecolored.bluemap.core.map.hires.RenderSettings;
 import de.bluecolored.bluemap.core.map.hires.TileModelView;
 import de.bluecolored.bluemap.core.map.hires.block.BlockRenderer;
 import de.bluecolored.bluemap.core.map.hires.block.BlockRendererType;
-import de.bluecolored.bluemap.core.map.hires.block.ResourceModelRenderer;
+import de.bluecolored.bluemap.core.map.hires.block.BlockStateModelRenderer;
 import de.bluecolored.bluemap.core.resources.pack.resourcepack.ResourcePack;
 import de.bluecolored.bluemap.core.resources.pack.resourcepack.blockstate.Variant;
 import de.bluecolored.bluemap.core.util.Key;
@@ -33,8 +33,10 @@ final class TrophyRenderer implements BlockRenderer {
     private final RenderSettings settings;
     private final AddonRuntime runtime;
     private final VariantRendererCatalog catalog;
-    private final ResourceModelRenderer models;
+    private final BlockStateModelRenderer stateRenderer;
     private final CreeperTrophyEmitter creeper;
+    private final Color baseMapColor = new Color();
+    private final Color subjectMapColor = new Color();
     private final Map<BlockRendererType, BlockRenderer> hosts = new IdentityHashMap<>();
 
     TrophyRenderer(
@@ -49,7 +51,7 @@ final class TrophyRenderer implements BlockRenderer {
         this.settings = settings;
         this.runtime = runtime;
         this.catalog = catalog;
-        this.models = new ResourceModelRenderer(resourcePack, textures, settings);
+        this.stateRenderer = new BlockStateModelRenderer(resourcePack, textures, settings);
         this.creeper = new CreeperTrophyEmitter(resourcePack, textures);
     }
 
@@ -103,7 +105,7 @@ final class TrophyRenderer implements BlockRenderer {
         BlockState base = state(
                 plan.baseBlock(), Map.of("type", "bottom", "waterlogged", "false")
         );
-        if (base == null || !renderState(base, block, target, mapColor)) {
+        if (base == null || !renderState(base, block, target, baseMapColor)) {
             target.getTileModel().reset(safeStart);
             target.initialize(safeStart);
             return false;
@@ -111,12 +113,14 @@ final class TrophyRenderer implements BlockRenderer {
 
         int subjectStart = target.getTileModel().size();
         target.initialize(subjectStart);
+        subjectMapColor.set(0F, 0F, 0F, 0F, true);
         boolean emitted = switch (plan.subject()) {
             case BLOCK_ITEM -> {
                 BlockState subject = state(plan.subjectId(), Map.of());
-                yield subject != null && renderState(subject, block, target, mapColor);
+                yield subject != null
+                        && renderState(subject, block, target, subjectMapColor);
             }
-            case CREEPER -> creeper.emit(block, target, mapColor);
+            case CREEPER -> creeper.emit(block, target, subjectMapColor);
         };
         if (!emitted) {
             target.getTileModel().reset(safeStart);
@@ -128,8 +132,20 @@ final class TrophyRenderer implements BlockRenderer {
         } else {
             transformEntitySubject(target, plan);
         }
+        combineMapColors(mapColor, baseMapColor, subjectMapColor);
         target.initialize(safeStart);
         return true;
+    }
+
+    private static void combineMapColors(Color target, Color base, Color subject) {
+        float maximumOpacity = Math.max(base.a, subject.a);
+        target.set(0F, 0F, 0F, 0F, true)
+                .add(base.premultiplied())
+                .add(subject.premultiplied());
+        if (target.a > 0F) {
+            target.flatten().straight();
+            target.a = maximumOpacity;
+        }
     }
 
     private boolean renderState(
@@ -138,22 +154,11 @@ final class TrophyRenderer implements BlockRenderer {
             TileModelView target,
             Color mapColor
     ) {
-        var resource = resourcePack.getBlockStates().get(state.getId());
-        if (resource == null) {
+        if (resourcePack.getBlockStates().get(state.getId()) == null) {
             return false;
         }
         int start = target.getTileModel().size();
-        resource.forEach(
-                state,
-                block.getX(),
-                block.getY(),
-                block.getZ(),
-                selected -> {
-                    if (selected.getRenderer() == BlockRendererType.DEFAULT) {
-                        models.render(block, selected, target, mapColor);
-                    }
-                }
-        );
+        stateRenderer.render(block, state, target, mapColor);
         return target.getTileModel().size() > start;
     }
 

@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-package io.github.janguenter.bluemap.trophymanager.adapter.bluemap522;
+package io.github.janguenter.bluemap.trophymanager.adapter.bluemap523;
 
 import de.bluecolored.bluemap.core.resources.pack.resourcepack.ResourcePack;
 import de.bluecolored.bluemap.core.resources.pack.resourcepack.ResourcePackExtension;
@@ -53,6 +53,10 @@ final class ProfileResourceExtension implements ResourcePackExtension {
 
         if (resourcePack.getBlockStates().get(TROPHY) == null) {
             runtime.inactive("required-resource-missing");
+            return;
+        }
+        if (!BlueNbtHotAddSupport.retainsPersistedTrophyData()) {
+            runtime.inactive("bluenbt-retention-probe-failed");
             return;
         }
         runtime.activate();

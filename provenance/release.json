@@ -1,75 +1,137 @@
 {
   "schema_version": 1,
   "status": "owner-accepted-release-candidate",
-  "version": "0.1.0-alpha.1",
-  "release_date": "2026-08-27",
+  "published": false,
+  "version": "0.1.0-alpha.2",
+  "release_date": "2026-09-02",
   "repository": "https://github.com/jan-guenter/bluemap-trophy-manager-addon",
-  "tag": "v0.1.0-alpha.1",
-  "maven_coordinate": "io.github.jan-guenter:bluemap-trophy-manager-addon:0.1.0-alpha.1",
-  "owner_accepted_staging": {
-    "accepted_at": "2026-08-27",
-    "commit": "19d6845a0d110767763206a1e709521c98d10c2a",
-    "tree": "f944c473d177671957ecd96836c3400244ac792f",
-    "production_jar_size": 92122,
-    "production_jar_sha256": "66f14e8c99d847a381eda4b202bf78e32556bba8604c14f0b726d65c8b5e6f88",
-    "accepted_at_map": "trophymanager_review",
-    "visual_acceptance": true
+  "tag": "v0.1.0-alpha.2",
+  "maven_coordinate": "io.github.jan-guenter:bluemap-trophy-manager-addon:0.1.0-alpha.2",
+  "bluemap": {
+    "version": "5.22-feature.backport-5.23-stateless-java-web-server-46",
+    "commit": "7e07f4e74ec1e92a6ead9aa1e66054af3e133aac",
+    "api_commit": "285c9a60eff3ac2b0cab308ce1058d1565be0971"
   },
-  "accepted_staging_entries": {
-    "path": "provenance/accepted-staging-entries.sha256",
-    "entry_count": 31,
-    "sha256": "1138289400dd67b2372e4319592a9e31a9f8b8b5a86c44b5caac6322b874b6a9"
+  "adapter_api": {
+    "version": "0.1.0-alpha.2",
+    "commit": "e81f08bc4bfbf02d810ec8949a019130e2e61634",
+    "source_tree": "2f974c9bb2ba13888d69682f86f30f58922d30eb",
+    "source_files_compiled": 4,
+    "module_jar_installed": false,
+    "module_jar_bundled": false,
+    "module_jar_nested": false,
+    "local_adapter_package": "io.github.janguenter.bluemap.trophymanager.adapter.bluemap523"
+  },
+  "baseline_release": {
+    "version": "0.1.0-alpha.1",
+    "tag": "v0.1.0-alpha.1",
+    "commit": "235fe54839a9521b0a70fd95822779fa499eee37",
+    "production_jar_size": 92121,
+    "production_jar_sha256": "3eb5e33df93231f362e749b9044fc450748e2a3d0f3998711d6871586aae00d9",
+    "owner_visual_acceptance": "2026-08-27"
+  },
+  "candidate_artifacts": {
+    "production_jar": {
+      "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2.jar",
+      "size": 102388,
+      "sha256": "b492948aaa281e1874441a259ff9a83cb1b605eb6a390d36e3f6d7424212209b"
+    },
+    "sources_jar": {
+      "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2-sources.jar",
+      "size": 71134,
+      "sha256": "12d8545b3269b5a87cdf5d854a5739cb2b8bf771c520601b9f06897d2d27abe6"
+    },
+    "pom": {
+      "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2.pom",
+      "size": 1359,
+      "sha256": "7217f4190add717e1abcb556761d8349c9c733c90672521af3b23880f1a4aaef"
+    },
+    "gradle_module": {
+      "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2.module.json",
+      "size": 2868,
+      "sha256": "7f1d32e3d7c5d82a828d752d0573e33a98bbdb88fc636189a127328286c5bdcb"
+    }
+  },
+  "gallery_candidate": {
+    "file_name": "trophymanager-gallery.zip",
+    "size": 2725,
+    "sha256": "ccd3126c7a7a89b3eabf9f94ac9d6437025a51e90b0965764142fda8b6f8353a",
+    "deterministic_rebuild": true,
+    "matches_alpha_1_owner_accepted_gallery": true
+  },
+  "preserved_contract": {
+    "gallery_review_cases": 6,
+    "gallery_sources_changed": false,
+    "profile_and_resources_changed": false,
+    "renderer_behavior_changed": true,
+    "camol_late_wrapper_interop_repaired": true,
+    "bluenbt_late_registration_repaired": true,
+    "stock_fallback_changed": false
+  },
+  "ephemeral_ci_inputs": {
+    "trophyManager_size": 84293,
+    "trophyManager_sha256": "739f59d0879cff453e229e6a68a7f2e3dd131786da369f82204a8ff2004e7bbd"
+  },
+  "verification": {
+    "exact_input_gate": true,
+    "adapter_api_gitlink_and_source_tree_gate": true,
+    "production_archive_boundary_gate": true,
+    "sources_archive_boundary_gate": true,
+    "local_candidate_artifact_identity_gate": true,
+    "gradle_9_6_1_clean_builds_byte_identical": true,
+    "authoritative_pr_ci_reproduction": true,
+    "camol_late_wrapper_regression_gate": true,
+    "exact_live_resource_camol_oracle_triangles": 24,
+    "local_gradle_version": "9.6.1",
+    "local_java_runtime": "21.0.12.1+1",
+    "exact_alpha_2_runtime_review": true
+  },
+  "owner_accepted_staging": {
+    "visual_acceptance": true,
+    "accepted_on": "2026-09-02",
+    "scope": "Owner accepted the corrected Trophy Manager gallery in the combined BlueMap 5.23 integration review. The accepted late block-entity decoder, BlockStateModelRenderer path, Camol interop, profile, resources, and gallery are present byte-for-byte in the alpha.2 production candidate. The aggregate staging JAR differs only at the standard integration activation-check and logging entrypoint overlay.",
+    "integration_run": "bluemap-atmons-integration-20260902-next-review-batch-v41-logistics-fixed-deploy",
+    "candidate_manifest": {
+      "sha256": "f1e0f069d5fce990c8cbc4e007db8c5239d4ca736078fa58fa221ac351cb70ae",
+      "local_candidate_base_source_commit": "ccd190bff7215d07209fbdf4e4b6d4f1345d88a2",
+      "local_candidate_base_artifact": {
+        "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2.jar",
+        "size": 102388,
+        "sha256": "b492948aaa281e1874441a259ff9a83cb1b605eb6a390d36e3f6d7424212209b"
+      },
+      "aggregate_staging_artifact": {
+        "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.1.jar",
+        "size": 102809,
+        "sha256": "d0e3bd022ea75026bcdd32ad1ae6c3f979ff08a4232e340226a172540ac9711e"
+      },
+      "archive_comparison": {
+        "identical_non_entrypoint_files": 34,
+        "different_files": [
+          "io/github/janguenter/bluemap/trophymanager/BlueMapTrophyManagerAddon.class"
+        ]
+      }
+    }
   },
   "final_release_artifacts": {
     "production_jar": {
-      "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.1.jar",
-      "size": 92121,
-      "sha256": "3eb5e33df93231f362e749b9044fc450748e2a3d0f3998711d6871586aae00d9"
+      "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2.jar",
+      "size": 102388,
+      "sha256": "b492948aaa281e1874441a259ff9a83cb1b605eb6a390d36e3f6d7424212209b"
     },
     "sources_jar": {
-      "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.1-sources.jar",
-      "size": 60896,
-      "sha256": "a2b66804a4aafa17ef33a95da9a1091f02804e89c491e3ffa99ab20d11702087"
+      "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2-sources.jar",
+      "size": 71134,
+      "sha256": "12d8545b3269b5a87cdf5d854a5739cb2b8bf771c520601b9f06897d2d27abe6"
     },
     "pom": {
-      "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.1.pom",
+      "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2.pom",
       "size": 1359,
-      "sha256": "86847924364a335698cf2cba160bf8772db7de9d2f00bc1317b069b5e9bdf018"
+      "sha256": "7217f4190add717e1abcb556761d8349c9c733c90672521af3b23880f1a4aaef"
     },
     "gradle_module": {
-      "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.1.module.json",
-      "size": 2866,
-      "sha256": "3fd27364db38a912850ef37fe2410c2737f8be9d03849a72333e680a600b97d3"
+      "file_name": "bluemap-trophy-manager-addon-0.1.0-alpha.2.module.json",
+      "size": 2868,
+      "sha256": "7f1d32e3d7c5d82a828d752d0573e33a98bbdb88fc636189a127328286c5bdcb"
     }
-  },
-  "staged_equivalence": {
-    "entry_manifest": "provenance/accepted-staging-entries.sha256",
-    "identical_non_manifest_entries": 31,
-    "whole_jar_byte_identical": false,
-    "only_changed_entry_bytes": "META-INF/MANIFEST.MF",
-    "change_reason": "Implementation-Version changed from the accepted SNAPSHOT marker to the final release version."
-  },
-  "gallery": {
-    "archive_file_name": "trophymanager-gallery.zip",
-    "size": 2725,
-    "sha256": "ccd3126c7a7a89b3eabf9f94ac9d6437025a51e90b0965764142fda8b6f8353a",
-    "review_cases": 6,
-    "published_as_release_asset": false
-  },
-  "ephemeral_ci_inputs": {
-    "trophyManager": {
-      "curseforge_project": 510170,
-      "curseforge_file": 8274338,
-      "size": 84293,
-      "sha256": "739f59d0879cff453e229e6a68a7f2e3dd131786da369f82204a8ff2004e7bbd"
-    },
-    "policy": "Downloaded only into the ephemeral runner, verified before use, and never bundled or uploaded."
-  },
-  "verification": {
-    "production_jar_exact_byte_gate": true,
-    "sources_jar_exact_byte_gate": true,
-    "publication_metadata_exact_byte_gate": true,
-    "staged_equivalence_gate": true,
-    "exact_input_gate": true
   }
 }

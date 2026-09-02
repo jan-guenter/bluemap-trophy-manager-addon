@@ -8,14 +8,14 @@ After the owner accepts the candidate:
 
 1. Remove every generated implementation placeholder and retain the accepted
    bounded gallery fixture.
-2. Freeze the accepted staging JAR's non-manifest entry hashes in
-   `provenance/accepted-staging-entries.sha256` with the one-time
-   `bluemap-addon-toolkit jar-entries write` command.
-3. Change `addon_version` from the SNAPSHOT to its final version through a PR.
+2. Record the accepted integration run and exact candidate identities in
+   `provenance/release.json`.
+3. Change the provenance status to `owner-accepted-release-candidate` through
+   a pull request.
 4. Build production JAR, sources JAR, POM, and Gradle module metadata with the
    exact promotion Java/Gradle/BlueMap inputs.
-5. Put their exact sizes and SHA-256 values in `gradle.properties` and complete
-   `provenance/release.json`.
+5. Confirm their exact sizes and SHA-256 values still match `gradle.properties`
+   and `provenance/release.json`.
 6. Run `verifyReleaseCandidate -PreleaseTag=v<version>` with all exact candidate
    JAR Gradle properties.
 7. Merge the reviewed commit, create an annotated `v<version>` tag at that
